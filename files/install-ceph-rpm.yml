@@ -1,0 +1,14 @@
+---
+- name: installing ceph
+  hosts: ceph-node1
+  tasks:
+  - name: install ceph
+    copy:
+     src: /root/Ceph-Cookbook-Second-Edition/ceph-ansible-2.2.10-38.g7ef908a.el7.noarch.rpm
+     dest: /root/ceph-ansible-2.2.10-38.g7ef908a.el7.noarch.rpm
+
+
+  - name: install ceph from copied rpm
+    yum:
+     name: /root/ceph-ansible-2.2.10-38.g7ef908a.el7.noarch.rpm
+     state: present

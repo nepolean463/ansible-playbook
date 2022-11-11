@@ -1,0 +1,31 @@
+---
+- name: install and configure ntpdate
+  hosts: all
+  become: true
+
+  tasks:
+  - name: install ntp and ntpdate
+    yum:
+      name: ntp
+      state: latest
+
+  - name: install ntp and ntpdate
+    yum:
+      name: ntpdate
+      state: latest
+
+  - name: ntpupdate command
+    register: ntpdateout
+    command: "ntpdate pool.ntp.org" 
+
+  - name: reload ntpdate service
+    service:
+      name: ntpdate
+      state: restarted
+      enabled: yes
+
+  - name: reload ntp Service
+    service:
+      name: ntpd
+      state: started
+      enlabed: yes

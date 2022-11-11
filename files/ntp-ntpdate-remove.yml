@@ -1,0 +1,15 @@
+---
+- name: install and configure ntpdate
+  hosts: all
+  become: true
+
+  tasks:
+  - name: install ntp and ntpdate
+    yum:
+      name: ntp
+      state: absent
+
+  - name: install ntp and ntpdate
+    yum:
+      name: ntpdate
+      state: absent

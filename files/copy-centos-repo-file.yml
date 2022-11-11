@@ -1,0 +1,9 @@
+---
+- name: copy centos base repo
+  hosts: all
+  tasks:
+  - name: copy yum repo 
+    copy:
+     src: /etc/yum.repos.d/CentOS-Base.repo
+     dest: /etc/yum.repos.d/CentOS-Base.repo
+

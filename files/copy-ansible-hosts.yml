@@ -1,0 +1,9 @@
+---
+- name: installing ceph
+  hosts: all
+  tasks:
+  - name: install ceph
+    copy:
+     src: /etc/ansible/hosts
+     dest: /etc/ansible/hosts
+

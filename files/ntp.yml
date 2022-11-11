@@ -1,0 +1,17 @@
+---
+- name: install and configure ntpdate
+  hosts: all
+  become: true
+
+  tasks:
+  - name: reload ntpdate service
+    service:
+      name: ntpd
+      state: restarted
+
+  - name: Enable ntpdate service
+    service:
+      name: ntpd
+      enabled: yes
+
+
